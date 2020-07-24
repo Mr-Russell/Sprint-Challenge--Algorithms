@@ -103,10 +103,11 @@ class SortingRobot:
 
             while self.can_move_right():
                 self.move_right()
+                if self.can_move_right() == False:
+                    break
                 if self.compare_item() == -1: # Held item is smaller
                     self.swap_item()
                     self.set_light_on()
-
             
             if self.compare_item() == 1: # Held item is larger
                 self.swap_item()
@@ -114,6 +115,8 @@ class SortingRobot:
             
             while self.can_move_left():
                 self.move_left()
+                if self.can_move_left() == False:
+                    break
                 if self.compare_item() == 1: # Held item is larger
                     self.swap_item()
                     self.set_light_on()
